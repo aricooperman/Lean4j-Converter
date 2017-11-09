@@ -1,4 +1,4 @@
-package com.antlr.test;
+package com.tbmresearch.qc4j.converter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,13 +16,13 @@ import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import com.antlr.test.CSharpParser.All_member_modifiersContext;
-import com.antlr.test.CSharpParser.AttributesContext;
-import com.antlr.test.CSharpParser.Class_definitionContext;
-import com.antlr.test.CSharpParser.Delegate_definitionContext;
-import com.antlr.test.CSharpParser.Enum_definitionContext;
-import com.antlr.test.CSharpParser.Interface_definitionContext;
-import com.antlr.test.CSharpParser.Struct_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.All_member_modifiersContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.AttributesContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Class_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Delegate_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Enum_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Interface_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Struct_definitionContext;
 
 public class App {
 
