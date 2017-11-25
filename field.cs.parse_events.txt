@@ -1,0 +1,1593 @@
+
+exitEveryRule: identifier | IdentifierContext | System
+	exitNamespace_or_type_name: System
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | System
+	exitUsingNamespaceDirective: System
+exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingSystem;
+exitEveryRule: identifier | IdentifierContext | QuantConnect
+exitEveryRule: identifier | IdentifierContext | Data
+	exitNamespace_or_type_name: QuantConnect.Data
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | QuantConnect.Data
+exitUsingNamespaceDirective: QuantConnect.Data
+exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingQuantConnect.Data;
+exitEveryRule: identifier | IdentifierContext | QuantConnect
+exitEveryRule: identifier | IdentifierContext | Data
+exitEveryRule: identifier | IdentifierContext | Market
+	exitNamespace_or_type_name: QuantConnect.Data.Market
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | QuantConnect.Data.Market
+	exitUsingNamespaceDirective: QuantConnect.Data.Market
+exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingQuantConnect.Data.Market;
+exitUsing_directives: usingSystem;usingQuantConnect.Data;usingQuantConnect.Data.Market;
+exitEveryRule: using_directives | Using_directivesContext | usingSystem;usingQuantConnect.Data;usingQuantConnect.Data.Market;
+exitEveryRule: identifier | IdentifierContext | QuantConnect
+package quantconnect;
+
+exitEveryRule: qualified_identifier | Qualified_identifierContext | QuantConnect
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifier | All_member_modifierContext | partial
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstaticpartial
+exitEveryRule: identifier | IdentifierContext | Field
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+	exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+	exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+	exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+	exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Open
+exitNamespace_or_type_name: Open
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Open
+exitEveryRule: member_name | Member_nameContext | Open
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Open
+exitEveryRule: member_access | Member_accessContext | .Open
+exitEveryRule: primary_expression | Primary_expressionContext | x.Open
+exitEveryRule: unary_expression | Unary_expressionContext | x.Open
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Open
+exitEveryRule: additive_expression | Additive_expressionContext | x.Open
+exitEveryRule: shift_expression | Shift_expressionContext | x.Open
+exitEveryRule: relational_expression | Relational_expressionContext | x.Open
+exitEveryRule: equality_expression | Equality_expressionContext | x.Open
+exitEveryRule: and_expression | And_expressionContext | x.Open
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.Open
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.Open
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.Open
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.Open
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.Open
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.Open
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.Open
+exitEveryRule: expression | ExpressionContext | x.Open
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | x.Open
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>x.Open
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>x.Open
+exitEveryRule: expression | ExpressionContext | x=>x.Open
+exitEveryRule: argument | ArgumentContext | x=>x.Open
+exitEveryRule: argument_list | Argument_listContext | x=>x.Open
+exitEveryRule: method_invocation | Method_invocationContext | (x=>x.Open)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>x.Open)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>x.Open);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>x.Open);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>x.Open);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>x.Open);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>x.Open);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>x.Open);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>x.Open);}
+exitEveryRule: property_declaration | Property_declarationContext | Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | High
+exitNamespace_or_type_name: High
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | High
+exitEveryRule: member_name | Member_nameContext | High
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: additive_expression | Additive_expressionContext | x.High
+exitEveryRule: shift_expression | Shift_expressionContext | x.High
+exitEveryRule: relational_expression | Relational_expressionContext | x.High
+exitEveryRule: equality_expression | Equality_expressionContext | x.High
+exitEveryRule: and_expression | And_expressionContext | x.High
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.High
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.High
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.High
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.High
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.High
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.High
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.High
+exitEveryRule: expression | ExpressionContext | x.High
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | x.High
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>x.High
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>x.High
+exitEveryRule: expression | ExpressionContext | x=>x.High
+exitEveryRule: argument | ArgumentContext | x=>x.High
+exitEveryRule: argument_list | Argument_listContext | x=>x.High
+exitEveryRule: method_invocation | Method_invocationContext | (x=>x.High)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>x.High)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>x.High);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>x.High);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>x.High);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>x.High);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>x.High);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>x.High);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>x.High);}
+exitEveryRule: property_declaration | Property_declarationContext | High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Low
+exitNamespace_or_type_name: Low
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Low
+exitEveryRule: member_name | Member_nameContext | Low
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: additive_expression | Additive_expressionContext | x.Low
+exitEveryRule: shift_expression | Shift_expressionContext | x.Low
+exitEveryRule: relational_expression | Relational_expressionContext | x.Low
+exitEveryRule: equality_expression | Equality_expressionContext | x.Low
+exitEveryRule: and_expression | And_expressionContext | x.Low
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.Low
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.Low
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.Low
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.Low
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.Low
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.Low
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.Low
+exitEveryRule: expression | ExpressionContext | x.Low
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | x.Low
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>x.Low
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>x.Low
+exitEveryRule: expression | ExpressionContext | x=>x.Low
+exitEveryRule: argument | ArgumentContext | x=>x.Low
+exitEveryRule: argument_list | Argument_listContext | x=>x.Low
+exitEveryRule: method_invocation | Method_invocationContext | (x=>x.Low)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>x.Low)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>x.Low);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>x.Low);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>x.Low);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>x.Low);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>x.Low);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>x.Low);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>x.Low);}
+exitEveryRule: property_declaration | Property_declarationContext | Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Close
+exitNamespace_or_type_name: Close
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Close
+exitEveryRule: member_name | Member_nameContext | Close
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Value
+exitEveryRule: member_access | Member_accessContext | .Value
+exitEveryRule: primary_expression | Primary_expressionContext | x.Value
+exitEveryRule: unary_expression | Unary_expressionContext | x.Value
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Value
+exitEveryRule: additive_expression | Additive_expressionContext | x.Value
+exitEveryRule: shift_expression | Shift_expressionContext | x.Value
+exitEveryRule: relational_expression | Relational_expressionContext | x.Value
+exitEveryRule: equality_expression | Equality_expressionContext | x.Value
+exitEveryRule: and_expression | And_expressionContext | x.Value
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.Value
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.Value
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.Value
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.Value
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.Value
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.Value
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.Value
+exitEveryRule: expression | ExpressionContext | x.Value
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | x.Value
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>x.Value
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>x.Value
+exitEveryRule: expression | ExpressionContext | x=>x.Value
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnx=>x.Value;
+exitEveryRule: embedded_statement | Embedded_statementContext | returnx=>x.Value;
+exitEveryRule: statement | EmbeddedStatementContext | returnx=>x.Value;
+exitEveryRule: statement_list | Statement_listContext | returnx=>x.Value;
+exitEveryRule: block | BlockContext | {returnx=>x.Value;}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnx=>x.Value;}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnx=>x.Value;}
+exitEveryRule: property_declaration | Property_declarationContext | Close{get{returnx=>x.Value;}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Close{get{returnx=>x.Value;}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Close{get{returnx=>x.Value;}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Average
+exitNamespace_or_type_name: Average
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Average
+exitEveryRule: member_name | Member_nameContext | Average
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Open
+exitEveryRule: member_access | Member_accessContext | .Open
+exitEveryRule: primary_expression | Primary_expressionContext | x.Open
+exitEveryRule: unary_expression | Unary_expressionContext | x.Open
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Open
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Close
+exitEveryRule: member_access | Member_accessContext | .Close
+exitEveryRule: primary_expression | Primary_expressionContext | x.Close
+exitEveryRule: unary_expression | Unary_expressionContext | x.Close
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Close
+exitEveryRule: additive_expression | Additive_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: shift_expression | Shift_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: relational_expression | Relational_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: equality_expression | Equality_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: and_expression | And_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: expression | ExpressionContext | x.Open+x.High+x.Low+x.Close
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (x.Open+x.High+x.Low+x.Close)
+exitEveryRule: primary_expression | Primary_expressionContext | (x.Open+x.High+x.Low+x.Close)
+exitEveryRule: unary_expression | Unary_expressionContext | (x.Open+x.High+x.Low+x.Close)
+exitEveryRule: literal | LiteralContext | 4m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 4m
+exitEveryRule: primary_expression | Primary_expressionContext | 4m
+exitEveryRule: unary_expression | Unary_expressionContext | 4m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: additive_expression | Additive_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: shift_expression | Shift_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: relational_expression | Relational_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: equality_expression | Equality_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: and_expression | And_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: conditional_expression | Conditional_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: expression | ExpressionContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | (x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>(x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>(x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: expression | ExpressionContext | x=>(x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: argument | ArgumentContext | x=>(x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: argument_list | Argument_listContext | x=>(x.Open+x.High+x.Low+x.Close)/4m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}
+exitEveryRule: property_declaration | Property_declarationContext | Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Median
+exitNamespace_or_type_name: Median
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Median
+exitEveryRule: member_name | Member_nameContext | Median
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: additive_expression | Additive_expressionContext | x.High+x.Low
+exitEveryRule: shift_expression | Shift_expressionContext | x.High+x.Low
+exitEveryRule: relational_expression | Relational_expressionContext | x.High+x.Low
+exitEveryRule: equality_expression | Equality_expressionContext | x.High+x.Low
+exitEveryRule: and_expression | And_expressionContext | x.High+x.Low
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.High+x.Low
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.High+x.Low
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.High+x.Low
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.High+x.Low
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.High+x.Low
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.High+x.Low
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.High+x.Low
+exitEveryRule: expression | ExpressionContext | x.High+x.Low
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (x.High+x.Low)
+exitEveryRule: primary_expression | Primary_expressionContext | (x.High+x.Low)
+exitEveryRule: unary_expression | Unary_expressionContext | (x.High+x.Low)
+exitEveryRule: literal | LiteralContext | 2m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 2m
+exitEveryRule: primary_expression | Primary_expressionContext | 2m
+exitEveryRule: unary_expression | Unary_expressionContext | 2m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: additive_expression | Additive_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: shift_expression | Shift_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: relational_expression | Relational_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: equality_expression | Equality_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: and_expression | And_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: conditional_expression | Conditional_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (x.High+x.Low)/2m
+exitEveryRule: expression | ExpressionContext | (x.High+x.Low)/2m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | (x.High+x.Low)/2m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>(x.High+x.Low)/2m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>(x.High+x.Low)/2m
+exitEveryRule: expression | ExpressionContext | x=>(x.High+x.Low)/2m
+exitEveryRule: argument | ArgumentContext | x=>(x.High+x.Low)/2m
+exitEveryRule: argument_list | Argument_listContext | x=>(x.High+x.Low)/2m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>(x.High+x.Low)/2m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}
+exitEveryRule: property_declaration | Property_declarationContext | Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Typical
+exitNamespace_or_type_name: Typical
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Typical
+exitEveryRule: member_name | Member_nameContext | Typical
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Close
+exitEveryRule: member_access | Member_accessContext | .Close
+exitEveryRule: primary_expression | Primary_expressionContext | x.Close
+exitEveryRule: unary_expression | Unary_expressionContext | x.Close
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Close
+exitEveryRule: additive_expression | Additive_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: shift_expression | Shift_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: relational_expression | Relational_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: equality_expression | Equality_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: and_expression | And_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.High+x.Low+x.Close
+exitEveryRule: expression | ExpressionContext | x.High+x.Low+x.Close
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (x.High+x.Low+x.Close)
+exitEveryRule: primary_expression | Primary_expressionContext | (x.High+x.Low+x.Close)
+exitEveryRule: unary_expression | Unary_expressionContext | (x.High+x.Low+x.Close)
+exitEveryRule: literal | LiteralContext | 3m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 3m
+exitEveryRule: primary_expression | Primary_expressionContext | 3m
+exitEveryRule: unary_expression | Unary_expressionContext | 3m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: additive_expression | Additive_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: shift_expression | Shift_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: relational_expression | Relational_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: equality_expression | Equality_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: and_expression | And_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: conditional_expression | Conditional_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: expression | ExpressionContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | (x.High+x.Low+x.Close)/3m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>(x.High+x.Low+x.Close)/3m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>(x.High+x.Low+x.Close)/3m
+exitEveryRule: expression | ExpressionContext | x=>(x.High+x.Low+x.Close)/3m
+exitEveryRule: argument | ArgumentContext | x=>(x.High+x.Low+x.Close)/3m
+exitEveryRule: argument_list | Argument_listContext | x=>(x.High+x.Low+x.Close)/3m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}
+exitEveryRule: property_declaration | Property_declarationContext | Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Weighted
+exitNamespace_or_type_name: Weighted
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Weighted
+exitEveryRule: member_name | Member_nameContext | Weighted
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: literal | LiteralContext | 2
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 2
+exitEveryRule: primary_expression | Primary_expressionContext | 2
+exitEveryRule: unary_expression | Unary_expressionContext | 2
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Close
+exitEveryRule: member_access | Member_accessContext | .Close
+exitEveryRule: primary_expression | Primary_expressionContext | x.Close
+exitEveryRule: unary_expression | Unary_expressionContext | x.Close
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | 2*x.Close
+exitEveryRule: additive_expression | Additive_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: shift_expression | Shift_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: relational_expression | Relational_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: equality_expression | Equality_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: and_expression | And_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: conditional_expression | Conditional_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: expression | ExpressionContext | x.High+x.Low+2*x.Close
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (x.High+x.Low+2*x.Close)
+exitEveryRule: primary_expression | Primary_expressionContext | (x.High+x.Low+2*x.Close)
+exitEveryRule: unary_expression | Unary_expressionContext | (x.High+x.Low+2*x.Close)
+exitEveryRule: literal | LiteralContext | 4m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 4m
+exitEveryRule: primary_expression | Primary_expressionContext | 4m
+exitEveryRule: unary_expression | Unary_expressionContext | 4m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: additive_expression | Additive_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: shift_expression | Shift_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: relational_expression | Relational_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: equality_expression | Equality_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: and_expression | And_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: conditional_expression | Conditional_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: expression | ExpressionContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | (x.High+x.Low+2*x.Close)/4m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>(x.High+x.Low+2*x.Close)/4m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>(x.High+x.Low+2*x.Close)/4m
+exitEveryRule: expression | ExpressionContext | x=>(x.High+x.Low+2*x.Close)/4m
+exitEveryRule: argument | ArgumentContext | x=>(x.High+x.Low+2*x.Close)/4m
+exitEveryRule: argument_list | Argument_listContext | x=>(x.High+x.Low+2*x.Close)/4m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}
+exitEveryRule: property_declaration | Property_declarationContext | Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | SevenBar
+exitNamespace_or_type_name: SevenBar
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | SevenBar
+exitEveryRule: member_name | Member_nameContext | SevenBar
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: literal | LiteralContext | 2
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 2
+exitEveryRule: primary_expression | Primary_expressionContext | 2
+exitEveryRule: unary_expression | Unary_expressionContext | 2
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Open
+exitEveryRule: member_access | Member_accessContext | .Open
+exitEveryRule: primary_expression | Primary_expressionContext | x.Open
+exitEveryRule: unary_expression | Unary_expressionContext | x.Open
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | 2*x.Open
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | High
+exitEveryRule: member_access | Member_accessContext | .High
+exitEveryRule: primary_expression | Primary_expressionContext | x.High
+exitEveryRule: unary_expression | Unary_expressionContext | x.High
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.High
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Low
+exitEveryRule: member_access | Member_accessContext | .Low
+exitEveryRule: primary_expression | Primary_expressionContext | x.Low
+exitEveryRule: unary_expression | Unary_expressionContext | x.Low
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x.Low
+exitEveryRule: literal | LiteralContext | 3
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 3
+exitEveryRule: primary_expression | Primary_expressionContext | 3
+exitEveryRule: unary_expression | Unary_expressionContext | 3
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: identifier | IdentifierContext | Close
+exitEveryRule: member_access | Member_accessContext | .Close
+exitEveryRule: primary_expression | Primary_expressionContext | x.Close
+exitEveryRule: unary_expression | Unary_expressionContext | x.Close
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | 3*x.Close
+exitEveryRule: additive_expression | Additive_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: shift_expression | Shift_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: relational_expression | Relational_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: equality_expression | Equality_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: and_expression | And_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: conditional_expression | Conditional_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: expression | ExpressionContext | 2*x.Open+x.High+x.Low+3*x.Close
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (2*x.Open+x.High+x.Low+3*x.Close)
+exitEveryRule: primary_expression | Primary_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)
+exitEveryRule: unary_expression | Unary_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)
+exitEveryRule: literal | LiteralContext | 7m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 7m
+exitEveryRule: primary_expression | Primary_expressionContext | 7m
+exitEveryRule: unary_expression | Unary_expressionContext | 7m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: additive_expression | Additive_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: shift_expression | Shift_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: relational_expression | Relational_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: equality_expression | Equality_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: and_expression | And_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: conditional_expression | Conditional_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: expression | ExpressionContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | (2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: expression | ExpressionContext | x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: argument | ArgumentContext | x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: argument_list | Argument_listContext | x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}
+exitEveryRule: property_declaration | Property_declarationContext | SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | public
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | Volume
+exitNamespace_or_type_name: Volume
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Volume
+exitEveryRule: member_name | Member_nameContext | Volume
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: primary_expression | Primary_expressionContext | x
+exitEveryRule: unary_expression | Unary_expressionContext | x
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x
+exitEveryRule: additive_expression | Additive_expressionContext | x
+exitEveryRule: shift_expression | Shift_expressionContext | x
+exitEveryRule: identifier | IdentifierContext | TradeBar
+exitNamespace_or_type_name: TradeBar
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | TradeBar
+exitClass_type: TradeBar
+exitEveryRule: class_type | Class_typeContext | TradeBar
+exitBase_type: TradeBar
+exitEveryRule: base_type | Base_typeContext | TradeBar
+exitEveryRule: isType | IsTypeContext | TradeBar
+exitEveryRule: relational_expression | Relational_expressionContext | xisTradeBar
+exitEveryRule: equality_expression | Equality_expressionContext | xisTradeBar
+exitEveryRule: and_expression | And_expressionContext | xisTradeBar
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | xisTradeBar
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | xisTradeBar
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | xisTradeBar
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | xisTradeBar
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | xisTradeBar
+exitEveryRule: identifier | IdentifierContext | TradeBar
+exitNamespace_or_type_name: TradeBar
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | TradeBar
+exitClass_type: TradeBar
+exitEveryRule: class_type | Class_typeContext | TradeBar
+exitBase_type: TradeBar
+exitEveryRule: base_type | Base_typeContext | TradeBar
+exitType: TradeBar
+exitEveryRule: type | TypeContext | TradeBar
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: primary_expression | Primary_expressionContext | x
+exitEveryRule: unary_expression | Unary_expressionContext | x
+exitEveryRule: unary_expression | Unary_expressionContext | (TradeBar)x
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (TradeBar)x
+exitEveryRule: additive_expression | Additive_expressionContext | (TradeBar)x
+exitEveryRule: shift_expression | Shift_expressionContext | (TradeBar)x
+exitEveryRule: relational_expression | Relational_expressionContext | (TradeBar)x
+exitEveryRule: equality_expression | Equality_expressionContext | (TradeBar)x
+exitEveryRule: and_expression | And_expressionContext | (TradeBar)x
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (TradeBar)x
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (TradeBar)x
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (TradeBar)x
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (TradeBar)x
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (TradeBar)x
+exitEveryRule: conditional_expression | Conditional_expressionContext | (TradeBar)x
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | (TradeBar)x
+exitEveryRule: expression | ExpressionContext | (TradeBar)x
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | ((TradeBar)x)
+exitEveryRule: identifier | IdentifierContext | Volume
+exitEveryRule: member_access | Member_accessContext | .Volume
+exitEveryRule: primary_expression | Primary_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: unary_expression | Unary_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: additive_expression | Additive_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: shift_expression | Shift_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: relational_expression | Relational_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: equality_expression | Equality_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: and_expression | And_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: conditional_expression | Conditional_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | ((TradeBar)x).Volume
+exitEveryRule: expression | ExpressionContext | ((TradeBar)x).Volume
+exitEveryRule: literal | LiteralContext | 0m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 0m
+exitEveryRule: primary_expression | Primary_expressionContext | 0m
+exitEveryRule: unary_expression | Unary_expressionContext | 0m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | 0m
+exitEveryRule: additive_expression | Additive_expressionContext | 0m
+exitEveryRule: shift_expression | Shift_expressionContext | 0m
+exitEveryRule: relational_expression | Relational_expressionContext | 0m
+exitEveryRule: equality_expression | Equality_expressionContext | 0m
+exitEveryRule: and_expression | And_expressionContext | 0m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | 0m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | 0m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | 0m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | 0m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | 0m
+exitEveryRule: conditional_expression | Conditional_expressionContext | 0m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | 0m
+exitEveryRule: expression | ExpressionContext | 0m
+exitEveryRule: conditional_expression | Conditional_expressionContext | xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: expression | ExpressionContext | xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: expression | ExpressionContext | x=>xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: argument | ArgumentContext | x=>xisTradeBar?((TradeBar)x).Volume:0m
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: literal | LiteralContext | 0m
+exitEveryRule: primary_expression_start | LiteralExpressionContext | 0m
+exitEveryRule: primary_expression | Primary_expressionContext | 0m
+exitEveryRule: unary_expression | Unary_expressionContext | 0m
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | 0m
+exitEveryRule: additive_expression | Additive_expressionContext | 0m
+exitEveryRule: shift_expression | Shift_expressionContext | 0m
+exitEveryRule: relational_expression | Relational_expressionContext | 0m
+exitEveryRule: equality_expression | Equality_expressionContext | 0m
+exitEveryRule: and_expression | And_expressionContext | 0m
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | 0m
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | 0m
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | 0m
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | 0m
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | 0m
+exitEveryRule: conditional_expression | Conditional_expressionContext | 0m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | 0m
+exitEveryRule: expression | ExpressionContext | 0m
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | 0m
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>0m
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>0m
+exitEveryRule: expression | ExpressionContext | x=>0m
+exitEveryRule: argument | ArgumentContext | x=>0m
+exitEveryRule: argument_list | Argument_listContext | x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m
+exitEveryRule: method_invocation | Method_invocationContext | (x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: primary_expression | Primary_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: unary_expression | Unary_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: additive_expression | Additive_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: shift_expression | Shift_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: relational_expression | Relational_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: equality_expression | Equality_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: and_expression | And_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: conditional_expression | Conditional_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: expression | ExpressionContext | BaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);
+exitEveryRule: statement | EmbeddedStatementContext | returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);
+exitEveryRule: statement_list | Statement_listContext | returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);
+exitEveryRule: block | BlockContext | {returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}
+exitEveryRule: accessor_body | Accessor_bodyContext | {returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}
+exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}
+exitEveryRule: property_declaration | Property_declarationContext | Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}
+exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}
+exitEveryRule: all_member_modifier | All_member_modifierContext | private
+exitEveryRule: all_member_modifier | All_member_modifierContext | static
+exitEveryRule: all_member_modifiers | All_member_modifiersContext | privatestatic
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
+exitEveryRule: method_member_name | Method_member_nameContext | BaseDataBarPropertyOrValue
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseDataBar
+exitNamespace_or_type_name: IBaseDataBar
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseDataBar
+exitClass_type: IBaseDataBar
+exitEveryRule: class_type | Class_typeContext | IBaseDataBar
+exitBase_type: IBaseDataBar
+exitEveryRule: base_type | Base_typeContext | IBaseDataBar
+exitType: IBaseDataBar
+exitEveryRule: type | TypeContext | IBaseDataBar
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseDataBar,decimal>
+exitNamespace_or_type_name: Func<IBaseDataBar,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseDataBar,decimal>
+exitClass_type: Func<IBaseDataBar,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseDataBar,decimal>
+exitBase_type: Func<IBaseDataBar,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseDataBar,decimal>
+exitType: Func<IBaseDataBar,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseDataBar,decimal>
+exitEveryRule: identifier | IdentifierContext | selector
+exitEveryRule: arg_declaration | Arg_declarationContext | Func<IBaseDataBar,decimal>selector
+exitEveryRule: fixed_parameter | Fixed_parameterContext | Func<IBaseDataBar,decimal>selector
+exitEveryRule: identifier | IdentifierContext | Func
+exitEveryRule: identifier | IdentifierContext | IBaseData
+exitNamespace_or_type_name: IBaseData
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
+exitClass_type: IBaseData
+exitEveryRule: class_type | Class_typeContext | IBaseData
+exitBase_type: IBaseData
+exitEveryRule: base_type | Base_typeContext | IBaseData
+exitType: IBaseData
+exitEveryRule: type | TypeContext | IBaseData
+exitEveryRule: numeric_type | Numeric_typeContext | decimal
+exitSimple_type: decimal
+exitEveryRule: simple_type | Simple_typeContext | decimal
+exitBase_type: decimal
+exitEveryRule: base_type | Base_typeContext | decimal
+exitType: decimal
+exitEveryRule: type | TypeContext | decimal
+exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
+exitNamespace_or_type_name: Func<IBaseData,decimal>
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
+exitClass_type: Func<IBaseData,decimal>
+exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
+exitBase_type: Func<IBaseData,decimal>
+exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
+exitType: Func<IBaseData,decimal>
+exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
+exitEveryRule: identifier | IdentifierContext | defaultSelector
+exitEveryRule: literal | LiteralContext | null
+exitEveryRule: primary_expression_start | LiteralExpressionContext | null
+exitEveryRule: primary_expression | Primary_expressionContext | null
+exitEveryRule: unary_expression | Unary_expressionContext | null
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | null
+exitEveryRule: additive_expression | Additive_expressionContext | null
+exitEveryRule: shift_expression | Shift_expressionContext | null
+exitEveryRule: relational_expression | Relational_expressionContext | null
+exitEveryRule: equality_expression | Equality_expressionContext | null
+exitEveryRule: and_expression | And_expressionContext | null
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | null
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | null
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | null
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | null
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | null
+exitEveryRule: conditional_expression | Conditional_expressionContext | null
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | null
+exitEveryRule: expression | ExpressionContext | null
+exitEveryRule: arg_declaration | Arg_declarationContext | Func<IBaseData,decimal>defaultSelector=null
+exitEveryRule: fixed_parameter | Fixed_parameterContext | Func<IBaseData,decimal>defaultSelector=null
+exitEveryRule: fixed_parameters | Fixed_parametersContext | Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null
+exitEveryRule: formal_parameter_list | Formal_parameter_listContext | Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | x
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: local_variable_type | Local_variable_typeContext | var
+exitEveryRule: identifier | IdentifierContext | bar
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: primary_expression | Primary_expressionContext | x
+exitEveryRule: unary_expression | Unary_expressionContext | x
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x
+exitEveryRule: additive_expression | Additive_expressionContext | x
+exitEveryRule: shift_expression | Shift_expressionContext | x
+exitEveryRule: identifier | IdentifierContext | IBaseDataBar
+exitNamespace_or_type_name: IBaseDataBar
+exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseDataBar
+exitClass_type: IBaseDataBar
+exitEveryRule: class_type | Class_typeContext | IBaseDataBar
+exitBase_type: IBaseDataBar
+exitEveryRule: base_type | Base_typeContext | IBaseDataBar
+exitType: IBaseDataBar
+exitEveryRule: type | TypeContext | IBaseDataBar
+exitEveryRule: relational_expression | Relational_expressionContext | xasIBaseDataBar
+exitEveryRule: equality_expression | Equality_expressionContext | xasIBaseDataBar
+exitEveryRule: and_expression | And_expressionContext | xasIBaseDataBar
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | xasIBaseDataBar
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | xasIBaseDataBar
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | xasIBaseDataBar
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | xasIBaseDataBar
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | xasIBaseDataBar
+exitEveryRule: conditional_expression | Conditional_expressionContext | xasIBaseDataBar
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | xasIBaseDataBar
+exitEveryRule: expression | ExpressionContext | xasIBaseDataBar
+exitEveryRule: local_variable_initializer | Local_variable_initializerContext | xasIBaseDataBar
+exitEveryRule: local_variable_declarator | Local_variable_declaratorContext | bar=xasIBaseDataBar
+exitEveryRule: local_variable_declaration | Local_variable_declarationContext | varbar=xasIBaseDataBar
+exitEveryRule: statement | DeclarationStatementContext | varbar=xasIBaseDataBar;
+exitEveryRule: identifier | IdentifierContext | bar
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | bar
+exitEveryRule: primary_expression | Primary_expressionContext | bar
+exitEveryRule: unary_expression | Unary_expressionContext | bar
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | bar
+exitEveryRule: additive_expression | Additive_expressionContext | bar
+exitEveryRule: shift_expression | Shift_expressionContext | bar
+exitEveryRule: relational_expression | Relational_expressionContext | bar
+exitEveryRule: literal | LiteralContext | null
+exitEveryRule: primary_expression_start | LiteralExpressionContext | null
+exitEveryRule: primary_expression | Primary_expressionContext | null
+exitEveryRule: unary_expression | Unary_expressionContext | null
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | null
+exitEveryRule: additive_expression | Additive_expressionContext | null
+exitEveryRule: shift_expression | Shift_expressionContext | null
+exitEveryRule: relational_expression | Relational_expressionContext | null
+exitEveryRule: equality_expression | Equality_expressionContext | bar!=null
+exitEveryRule: and_expression | And_expressionContext | bar!=null
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | bar!=null
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | bar!=null
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | bar!=null
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | bar!=null
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | bar!=null
+exitEveryRule: conditional_expression | Conditional_expressionContext | bar!=null
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | bar!=null
+exitEveryRule: expression | ExpressionContext | bar!=null
+exitEveryRule: identifier | IdentifierContext | selector
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | selector
+exitEveryRule: identifier | IdentifierContext | bar
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | bar
+exitEveryRule: primary_expression | Primary_expressionContext | bar
+exitEveryRule: unary_expression | Unary_expressionContext | bar
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | bar
+exitEveryRule: additive_expression | Additive_expressionContext | bar
+exitEveryRule: shift_expression | Shift_expressionContext | bar
+exitEveryRule: relational_expression | Relational_expressionContext | bar
+exitEveryRule: equality_expression | Equality_expressionContext | bar
+exitEveryRule: and_expression | And_expressionContext | bar
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | bar
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | bar
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | bar
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | bar
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | bar
+exitEveryRule: conditional_expression | Conditional_expressionContext | bar
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | bar
+exitEveryRule: expression | ExpressionContext | bar
+exitEveryRule: argument | ArgumentContext | bar
+exitEveryRule: argument_list | Argument_listContext | bar
+exitEveryRule: method_invocation | Method_invocationContext | (bar)
+exitEveryRule: primary_expression | Primary_expressionContext | selector(bar)
+exitEveryRule: unary_expression | Unary_expressionContext | selector(bar)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | selector(bar)
+exitEveryRule: additive_expression | Additive_expressionContext | selector(bar)
+exitEveryRule: shift_expression | Shift_expressionContext | selector(bar)
+exitEveryRule: relational_expression | Relational_expressionContext | selector(bar)
+exitEveryRule: equality_expression | Equality_expressionContext | selector(bar)
+exitEveryRule: and_expression | And_expressionContext | selector(bar)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | selector(bar)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | selector(bar)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | selector(bar)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | selector(bar)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | selector(bar)
+exitEveryRule: conditional_expression | Conditional_expressionContext | selector(bar)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | selector(bar)
+exitEveryRule: expression | ExpressionContext | selector(bar)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnselector(bar);
+exitEveryRule: embedded_statement | Embedded_statementContext | returnselector(bar);
+exitEveryRule: statement | EmbeddedStatementContext | returnselector(bar);
+exitEveryRule: statement_list | Statement_listContext | returnselector(bar);
+exitEveryRule: block | BlockContext | {returnselector(bar);}
+exitEveryRule: if_body | If_bodyContext | {returnselector(bar);}
+exitEveryRule: simple_embedded_statement | IfStatementContext | if(bar!=null){returnselector(bar);}
+exitEveryRule: embedded_statement | Embedded_statementContext | if(bar!=null){returnselector(bar);}
+exitEveryRule: statement | EmbeddedStatementContext | if(bar!=null){returnselector(bar);}
+exitEveryRule: identifier | IdentifierContext | defaultSelector
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | defaultSelector
+exitEveryRule: primary_expression | Primary_expressionContext | defaultSelector
+exitEveryRule: unary_expression | Unary_expressionContext | defaultSelector
+exitEveryRule: assignment_operator | Assignment_operatorContext | =
+exitEveryRule: identifier | IdentifierContext | defaultSelector
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | defaultSelector
+exitEveryRule: primary_expression | Primary_expressionContext | defaultSelector
+exitEveryRule: unary_expression | Unary_expressionContext | defaultSelector
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | defaultSelector
+exitEveryRule: additive_expression | Additive_expressionContext | defaultSelector
+exitEveryRule: shift_expression | Shift_expressionContext | defaultSelector
+exitEveryRule: relational_expression | Relational_expressionContext | defaultSelector
+exitEveryRule: equality_expression | Equality_expressionContext | defaultSelector
+exitEveryRule: and_expression | And_expressionContext | defaultSelector
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | defaultSelector
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | defaultSelector
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | defaultSelector
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | defaultSelector
+exitEveryRule: identifier | IdentifierContext | data
+exitEveryRule: anonymous_function_signature | Anonymous_function_signatureContext | data
+exitEveryRule: right_arrow | Right_arrowContext | =>
+exitEveryRule: identifier | IdentifierContext | data
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | data
+exitEveryRule: identifier | IdentifierContext | Value
+exitEveryRule: member_access | Member_accessContext | .Value
+exitEveryRule: primary_expression | Primary_expressionContext | data.Value
+exitEveryRule: unary_expression | Unary_expressionContext | data.Value
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | data.Value
+exitEveryRule: additive_expression | Additive_expressionContext | data.Value
+exitEveryRule: shift_expression | Shift_expressionContext | data.Value
+exitEveryRule: relational_expression | Relational_expressionContext | data.Value
+exitEveryRule: equality_expression | Equality_expressionContext | data.Value
+exitEveryRule: and_expression | And_expressionContext | data.Value
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | data.Value
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | data.Value
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | data.Value
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | data.Value
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | data.Value
+exitEveryRule: conditional_expression | Conditional_expressionContext | data.Value
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | data.Value
+exitEveryRule: expression | ExpressionContext | data.Value
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | data.Value
+exitEveryRule: lambda_expression | Lambda_expressionContext | data=>data.Value
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | data=>data.Value
+exitEveryRule: expression | ExpressionContext | data=>data.Value
+exitEveryRule: primary_expression_start | ParenthesisExpressionsContext | (data=>data.Value)
+exitEveryRule: primary_expression | Primary_expressionContext | (data=>data.Value)
+exitEveryRule: unary_expression | Unary_expressionContext | (data=>data.Value)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | (data=>data.Value)
+exitEveryRule: additive_expression | Additive_expressionContext | (data=>data.Value)
+exitEveryRule: shift_expression | Shift_expressionContext | (data=>data.Value)
+exitEveryRule: relational_expression | Relational_expressionContext | (data=>data.Value)
+exitEveryRule: equality_expression | Equality_expressionContext | (data=>data.Value)
+exitEveryRule: and_expression | And_expressionContext | (data=>data.Value)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | (data=>data.Value)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | (data=>data.Value)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | (data=>data.Value)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | (data=>data.Value)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | (data=>data.Value)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | defaultSelector??(data=>data.Value)
+exitEveryRule: conditional_expression | Conditional_expressionContext | defaultSelector??(data=>data.Value)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | defaultSelector??(data=>data.Value)
+exitEveryRule: expression | ExpressionContext | defaultSelector??(data=>data.Value)
+exitEveryRule: assignment | AssignmentContext | defaultSelector=defaultSelector??(data=>data.Value)
+exitEveryRule: expression | ExpressionContext | defaultSelector=defaultSelector??(data=>data.Value)
+exitEveryRule: simple_embedded_statement | ExpressionStatementContext | defaultSelector=defaultSelector??(data=>data.Value);
+exitEveryRule: embedded_statement | Embedded_statementContext | defaultSelector=defaultSelector??(data=>data.Value);
+exitEveryRule: statement | EmbeddedStatementContext | defaultSelector=defaultSelector??(data=>data.Value);
+exitEveryRule: identifier | IdentifierContext | defaultSelector
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | defaultSelector
+exitEveryRule: identifier | IdentifierContext | x
+exitEveryRule: primary_expression_start | SimpleNameExpressionContext | x
+exitEveryRule: primary_expression | Primary_expressionContext | x
+exitEveryRule: unary_expression | Unary_expressionContext | x
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | x
+exitEveryRule: additive_expression | Additive_expressionContext | x
+exitEveryRule: shift_expression | Shift_expressionContext | x
+exitEveryRule: relational_expression | Relational_expressionContext | x
+exitEveryRule: equality_expression | Equality_expressionContext | x
+exitEveryRule: and_expression | And_expressionContext | x
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | x
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | x
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | x
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | x
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | x
+exitEveryRule: conditional_expression | Conditional_expressionContext | x
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x
+exitEveryRule: expression | ExpressionContext | x
+exitEveryRule: argument | ArgumentContext | x
+exitEveryRule: argument_list | Argument_listContext | x
+exitEveryRule: method_invocation | Method_invocationContext | (x)
+exitEveryRule: primary_expression | Primary_expressionContext | defaultSelector(x)
+exitEveryRule: unary_expression | Unary_expressionContext | defaultSelector(x)
+exitEveryRule: multiplicative_expression | Multiplicative_expressionContext | defaultSelector(x)
+exitEveryRule: additive_expression | Additive_expressionContext | defaultSelector(x)
+exitEveryRule: shift_expression | Shift_expressionContext | defaultSelector(x)
+exitEveryRule: relational_expression | Relational_expressionContext | defaultSelector(x)
+exitEveryRule: equality_expression | Equality_expressionContext | defaultSelector(x)
+exitEveryRule: and_expression | And_expressionContext | defaultSelector(x)
+exitEveryRule: exclusive_or_expression | Exclusive_or_expressionContext | defaultSelector(x)
+exitEveryRule: inclusive_or_expression | Inclusive_or_expressionContext | defaultSelector(x)
+exitEveryRule: conditional_and_expression | Conditional_and_expressionContext | defaultSelector(x)
+exitEveryRule: conditional_or_expression | Conditional_or_expressionContext | defaultSelector(x)
+exitEveryRule: null_coalescing_expression | Null_coalescing_expressionContext | defaultSelector(x)
+exitEveryRule: conditional_expression | Conditional_expressionContext | defaultSelector(x)
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | defaultSelector(x)
+exitEveryRule: expression | ExpressionContext | defaultSelector(x)
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returndefaultSelector(x);
+exitEveryRule: embedded_statement | Embedded_statementContext | returndefaultSelector(x);
+exitEveryRule: statement | EmbeddedStatementContext | returndefaultSelector(x);
+exitEveryRule: statement_list | Statement_listContext | varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);
+exitEveryRule: block | BlockContext | {varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);}
+exitEveryRule: anonymous_function_body | Anonymous_function_bodyContext | {varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);}
+exitEveryRule: lambda_expression | Lambda_expressionContext | x=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);}
+exitEveryRule: non_assignment_expression | Non_assignment_expressionContext | x=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);}
+exitEveryRule: expression | ExpressionContext | x=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);}
+exitEveryRule: simple_embedded_statement | ReturnStatementContext | returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};
+exitEveryRule: embedded_statement | Embedded_statementContext | returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};
+exitEveryRule: statement | EmbeddedStatementContext | returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};
+exitEveryRule: statement_list | Statement_listContext | returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};
+exitEveryRule: block | BlockContext | {returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: method_body | Method_bodyContext | {returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: method_declaration | Method_declarationContext | BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitClass_member_declaration: privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: class_member_declaration | Class_member_declarationContext | privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+exitEveryRule: class_member_declarations | Class_member_declarationsContext | publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}
+enterClass_body: {publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: class_body | Class_bodyContext | {publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitClass_definition: classField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: class_definition | Class_definitionContext | classField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitType_declaration: publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: type_declaration | Type_declarationContext | publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: namespace_member_declaration | Namespace_member_declarationContext | publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: namespace_member_declarations | Namespace_member_declarationsContext | publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}
+exitEveryRule: namespace_body | Namespace_bodyContext | {publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}
+exitNamespace_declaration: namespaceQuantConnect{publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}
+exitEveryRule: namespace_declaration | Namespace_declarationContext | namespaceQuantConnect{publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}
+exitEveryRule: namespace_member_declaration | Namespace_member_declarationContext | namespaceQuantConnect{publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}
+exitEveryRule: namespace_member_declarations | Namespace_member_declarationsContext | namespaceQuantConnect{publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}
+Finished parse
+exitEveryRule: compilation_unit | Compilation_unitContext | usingSystem;usingQuantConnect.Data;usingQuantConnect.Data.Market;namespaceQuantConnect{publicstaticpartialclassField{publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}publicstaticFunc<IBaseData,decimal>High{get{returnBaseDataBarPropertyOrValue(x=>x.High);}}publicstaticFunc<IBaseData,decimal>Low{get{returnBaseDataBarPropertyOrValue(x=>x.Low);}}publicstaticFunc<IBaseData,decimal>Close{get{returnx=>x.Value;}}publicstaticFunc<IBaseData,decimal>Average{get{returnBaseDataBarPropertyOrValue(x=>(x.Open+x.High+x.Low+x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>Median{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low)/2m);}}publicstaticFunc<IBaseData,decimal>Typical{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+x.Close)/3m);}}publicstaticFunc<IBaseData,decimal>Weighted{get{returnBaseDataBarPropertyOrValue(x=>(x.High+x.Low+2*x.Close)/4m);}}publicstaticFunc<IBaseData,decimal>SevenBar{get{returnBaseDataBarPropertyOrValue(x=>(2*x.Open+x.High+x.Low+3*x.Close)/7m);}}publicstaticFunc<IBaseData,decimal>Volume{get{returnBaseDataBarPropertyOrValue(x=>xisTradeBar?((TradeBar)x).Volume:0m,x=>0m);}}privatestaticFunc<IBaseData,decimal>BaseDataBarPropertyOrValue(Func<IBaseDataBar,decimal>selector,Func<IBaseData,decimal>defaultSelector=null){returnx=>{varbar=xasIBaseDataBar;if(bar!=null){returnselector(bar);}defaultSelector=defaultSelector??(data=>data.Value);returndefaultSelector(x);};}}}EOF
