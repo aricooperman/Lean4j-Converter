@@ -21,23 +21,23 @@ exitEveryRule: base_type | Base_typeContext | IBaseData
 	exitType: IBaseData
 exitEveryRule: type | TypeContext | IBaseData
 exitEveryRule: numeric_type | Numeric_typeContext | decimal
-exitSimple_type: decimal
+	exitSimple_type: decimal
 exitEveryRule: simple_type | Simple_typeContext | decimal
-exitBase_type: decimal
+	exitBase_type: decimal
 exitEveryRule: base_type | Base_typeContext | decimal
-exitType: decimal
+	exitType: decimal
 exitEveryRule: type | TypeContext | decimal
 exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
-exitNamespace_or_type_name: Func<IBaseData,decimal>
+	exitNamespace_or_type_name: Func<IBaseData,decimal>
 exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
-exitClass_type: Func<IBaseData,decimal>
+	exitClass_type: Func<IBaseData,decimal>
 exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
-exitBase_type: Func<IBaseData,decimal>
+	exitBase_type: Func<IBaseData,decimal>
 exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
-exitType: Func<IBaseData,decimal>
+	exitType: Func<IBaseData,decimal>
 exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
 exitEveryRule: identifier | IdentifierContext | Open
-exitNamespace_or_type_name: Open
+	exitNamespace_or_type_name: Open
 exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Open
 exitEveryRule: member_name | Member_nameContext | Open
 exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
@@ -98,7 +98,7 @@ exitEveryRule: accessor_declarations | Accessor_declarationsContext | get{return
 exitEveryRule: property_declaration | Property_declarationContext | Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
 exitEveryRule: typed_member_declaration | Typed_member_declarationContext | Func<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
 exitEveryRule: common_member_declaration | Common_member_declarationContext | Func<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
-exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
+	exitClass_member_declaration: publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
 exitEveryRule: class_member_declaration | Class_member_declarationContext | publicstaticFunc<IBaseData,decimal>Open{get{returnBaseDataBarPropertyOrValue(x=>x.Open);}}
 exitEveryRule: all_member_modifier | All_member_modifierContext | public
 exitEveryRule: all_member_modifier | All_member_modifierContext | static
