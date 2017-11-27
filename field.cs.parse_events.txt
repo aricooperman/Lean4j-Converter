@@ -1,24 +1,3 @@
-
-exitEveryRule: identifier | IdentifierContext | System
-	exitNamespace_or_type_name: System
-exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | System
-	exitUsingNamespaceDirective: System
-exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingSystem;
-exitEveryRule: identifier | IdentifierContext | QuantConnect
-exitEveryRule: identifier | IdentifierContext | Data
-	exitNamespace_or_type_name: QuantConnect.Data
-exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | QuantConnect.Data
-exitUsingNamespaceDirective: QuantConnect.Data
-exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingQuantConnect.Data;
-exitEveryRule: identifier | IdentifierContext | QuantConnect
-exitEveryRule: identifier | IdentifierContext | Data
-exitEveryRule: identifier | IdentifierContext | Market
-	exitNamespace_or_type_name: QuantConnect.Data.Market
-exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | QuantConnect.Data.Market
-	exitUsingNamespaceDirective: QuantConnect.Data.Market
-exitEveryRule: using_directive | UsingNamespaceDirectiveContext | usingQuantConnect.Data.Market;
-exitUsing_directives: usingSystem;usingQuantConnect.Data;usingQuantConnect.Data.Market;
-exitEveryRule: using_directives | Using_directivesContext | usingSystem;usingQuantConnect.Data;usingQuantConnect.Data.Market;
 exitEveryRule: identifier | IdentifierContext | QuantConnect
 package quantconnect;
 

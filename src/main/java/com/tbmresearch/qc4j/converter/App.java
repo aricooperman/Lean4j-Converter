@@ -15,28 +15,29 @@ import org.antlr.v4.runtime.Token;
 
 public class App {
 
-	public static final void main(String[] args) throws IOException {
-		List<Token> codeTokens = new ArrayList<Token>();
-		List<Token> commentTokens = new ArrayList<Token>();
+	public static final void main(final String[] args) throws IOException {
+		final List<Token> codeTokens = new ArrayList<>();
+		final List<Token> commentTokens = new ArrayList<>();
 
-		Lexer preprocessorLexer = new CSharpLexer(CharStreams.fromFileName(args[0]));
+		final Lexer preprocessorLexer = new CSharpLexer(CharStreams.fromFileName(args[0]));
 		// Collect all tokens with lexer (CSharpLexer.g4).
-		List<? extends Token> tokens = preprocessorLexer.getAllTokens();
-		List<Token> directiveTokens = new ArrayList<Token>();
+		final List<? extends Token> tokens = preprocessorLexer.getAllTokens();
+		final List<Token> directiveTokens = new ArrayList<>();
 		ListTokenSource directiveTokenSource = new ListTokenSource(directiveTokens);
 		CommonTokenStream directiveTokenStream = new CommonTokenStream(directiveTokenSource, CSharpLexer.DIRECTIVE);
-		CSharpPreprocessorParser preprocessorParser = new CSharpPreprocessorParser(directiveTokenStream);
+		final CSharpPreprocessorParser preprocessorParser = new CSharpPreprocessorParser(directiveTokenStream);
+		preprocessorParser.init();
 
 		int index = 0;
 		boolean compiliedTokens = true;
 		while (index < tokens.size()) {
-			Token token = tokens.get(index);
+			final Token token = tokens.get(index);
 			if (token.getType() == CSharpLexer.SHARP) {
 				directiveTokens.clear();
 				int directiveTokenIndex = index + 1;
 				// Collect all preprocessor directive tokens.
 				final Token directiveToken = tokens.get(directiveTokenIndex);
-				while (directiveTokenIndex < tokens.size() && directiveToken.getType() != CSharpLexer.EOF
+				while (directiveTokenIndex < tokens.size() && directiveToken.getType() != Recognizer.EOF
 						&& directiveToken.getType() != CSharpLexer.DIRECTIVE_NEW_LINE
 						&& directiveToken.getType() != CSharpLexer.SHARP) {
 					if (directiveToken.getChannel() == CSharpLexer.COMMENTS_CHANNEL)
@@ -52,7 +53,7 @@ public class App {
 				preprocessorParser.reset();
 				// Parse condition in preprocessor directive (based on
 				// CSharpPreprocessorParser.g4 grammar).
-				CSharpPreprocessorParser.Preprocessor_directiveContext directive = preprocessorParser
+				final CSharpPreprocessorParser.Preprocessor_directiveContext directive = preprocessorParser
 						.preprocessor_directive();
 				// if true than next code is valid and not ignored.
 				compiliedTokens = directive.value;
@@ -67,9 +68,9 @@ public class App {
 		}
 
 		// At second stage tokens parsed in usual way.
-		ListTokenSource codeTokenSource = new ListTokenSource(tokens);
-		CommonTokenStream codeTokenStream = new CommonTokenStream(codeTokenSource);
-		CSharpParser csharpParser = new CSharpParser(codeTokenStream);
+		final ListTokenSource codeTokenSource = new ListTokenSource(tokens);
+		final CommonTokenStream codeTokenStream = new CommonTokenStream(codeTokenSource);
+		final CSharpParser csharpParser = new CSharpParser(codeTokenStream);
 //		// Parse syntax tree (CSharpParser.g4)
 //		Compilation_unitContext compilationUnit = parser.compilation_unit();
 //
@@ -79,8 +80,8 @@ public class App {
 
 		csharpParser.addErrorListener(new BaseErrorListener() {
 			@Override
-			public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line,
-					int charPositionInLine, String msg, RecognitionException e) {
+			public void syntaxError(final Recognizer<?, ?> recognizer, final Object offendingSymbol, final int line,
+					final int charPositionInLine, final String msg, final RecognitionException e) {
 				throw new IllegalStateException("failed to parse at line " + line + " due to " + msg, e);
 			}
 		});
