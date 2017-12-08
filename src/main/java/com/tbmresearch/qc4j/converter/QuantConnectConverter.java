@@ -4,20 +4,56 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
-import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import com.tbmresearch.qc4j.converter.CSharpParser.All_member_modifierContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.All_member_modifiersContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.AttributesContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Class_baseContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Class_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Delegate_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Enum_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Interface_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Struct_definitionContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Type_parameter_constraints_clausesContext;
+import com.tbmresearch.qc4j.converter.CSharpParser.Type_parameter_listContext;
+
 public class QuantConnectConverter extends CSharpParserBaseListener {
+
+	private enum MemberModifier {
+		NEW,
+		PUBLIC,
+		PROTECTED,
+		INTERNAL,
+		PRIVATE,
+		READONLY,
+		VOLATILE,
+		VIRTUAL,
+		SEALED,
+		OVERRIDE,
+		ABSTRACT,
+		STATIC,
+		UNSAFE,
+		EXTERN,
+		PARTIAL,
+		ASYNC
+	}
+
+	private enum ClassType {
+		CLASS, INTERFACE, ENUM
+
+	}
 
 	private static final String QUANT_CONNECT = "QuantConnect";
 	
 	private final List<ClassData> parsedClasses = new ArrayList<>();
 	private final Set<String> imports = new TreeSet<>();
-
-	private final ClassData currentClass = null;
+	private final Stack<ClassData> currentClassStack = new Stack<>();
 	private String namespace = null;
 	
 
@@ -25,6 +61,11 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 		for( final ClassData classData : parsedClasses ) {
 			final PrintStream out = System.out;
 			
+			out.append("package ").append(namespace.toLowerCase()).append(';').println();
+			out.println();
+			
+			imports.forEach(imp -> out.append("import ").append(imp.toLowerCase()).append(';').println() );
+			out.println();
 		}
 	}
 	
@@ -45,20 +86,20 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 //		 System.out.println( "exitNamespace_or_type_name: " + ctx.getText() );
 //	}
 
-	@Override
-	public void exitType(final CSharpParser.TypeContext ctx) {
-		 System.out.println( "exitType: " + ctx.getText() );
-	}
+//	@Override
+//	public void exitType(final CSharpParser.TypeContext ctx) {
+//		 System.out.println( "exitType: " + ctx.getText() );
+//	}
 
-	@Override
-	public void exitBase_type(final CSharpParser.Base_typeContext ctx) {
-		 System.out.println( "exitBase_type: " + ctx.getText() );
-	}
+//	@Override
+//	public void exitBase_type(final CSharpParser.Base_typeContext ctx) {
+//		 System.out.println( "exitBase_type: " + ctx.getText() );
+//	}
 
-	@Override
-	public void exitSimple_type(final CSharpParser.Simple_typeContext ctx) {
-		 System.out.println( "exitSimple_type: " + ctx.getText() );
-	}
+//	@Override
+//	public void exitSimple_type(final CSharpParser.Simple_typeContext ctx) {
+//		 System.out.println( "exitSimple_type: " + ctx.getText() );
+//	}
 
 	@Override
 	public void exitNumeric_type(final CSharpParser.Numeric_typeContext ctx) {
@@ -658,14 +699,10 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	}
 
-//	@Override
-//	public void exitNamespace_declaration(final CSharpParser.Namespace_declarationContext ctx) {
-//		System.out.println("exitNamespace_declaration: " + ctx.getText());
-//	}
-
 	@Override
-	public void exitQualified_identifier(final CSharpParser.Qualified_identifierContext ctx) {
-		final String pkg = ctx.getText();
+	public void exitNamespace_declaration(final CSharpParser.Namespace_declarationContext ctx) {
+//		System.out.println("exitNamespace_declaration: " + ctx.getText());
+		final String pkg = ctx.qualified_identifier().getText();
 		if( namespace != null ) {
 		    throw new UnsupportedOperationException( "Multiple namespaces found: " + namespace + " & " + pkg );
 		}
@@ -676,6 +713,11 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 		System.out.println();
 	}
+
+//	@Override
+//	public void exitQualified_identifier(final CSharpParser.Qualified_identifierContext ctx) {
+//		
+//	}
 
 	@Override
 	public void exitNamespace_body(final CSharpParser.Namespace_bodyContext ctx) {
@@ -730,32 +772,107 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 	}
 
 	@Override
+	public void enterType_declaration(final CSharpParser.Type_declarationContext ctx) {
+		currentClassStack.push(new ClassData());
+	}
+	
+	@Override
 	public void exitType_declaration(final CSharpParser.Type_declarationContext ctx) {
 		System.out.println("exitType_declaration: " + ctx.getText());
+		
+		ClassData currentClass = currentClassStack.pop();
+		parsedClasses.add(currentClass);
 
-		// Class_definitionContext classDef = ctx.class_definition();
-		// if(classDef != null)
-		// System.out.println( "Class_definitionContext: " + classDef.getText()
-		// );
-		//
-		// Struct_definitionContext structDef = ctx.struct_definition();
-		// if( structDef != null )
-		// System.out.println( "Struct_definitionContext: " +
-		// structDef.getText() );
-		//
-		// Interface_definitionContext intDef = ctx.interface_definition();
-		// if( intDef != null )
-		// System.out.println( "Interface_definitionContext: " + intDef );
-		// Enum_definitionContext enumDef = ctx.enum_definition();
-		// System.out.println( "Enum_definitionContext: " + enumDef );
-		// Delegate_definitionContext delDef = ctx.delegate_definition();
-		// System.out.println( "Delegate_definitionContext: " + delDef );
-		// AttributesContext attrCtx = ctx.attributes();
-		// System.out.println( "AttributesContext: " + attrCtx );
-		// All_member_modifiersContext allMemberCtx =
-		// ctx.all_member_modifiers();
-		// System.out.println( "All_member_modifiersContext: " + allMemberCtx );
+		Class_definitionContext classDef = ctx.class_definition();
+		if (classDef != null) {
+			currentClass.type = ClassType.CLASS;
+//			System.out.println("Class_definitionContext: " + classDef.getText());
+			
+			currentClass.name = classDef.identifier().getText();
+//			System.out.println(classDef.class_body().getText());
+			Type_parameter_listContext type_parameter_list = classDef.type_parameter_list();
+			if(type_parameter_list != null)
+				throw new UnsupportedOperationException(type_parameter_list.getText());
+			
+			Class_baseContext class_base = classDef.class_base();
+			if(class_base != null)
+				throw new UnsupportedOperationException(class_base.getText());
+			
+			Type_parameter_constraints_clausesContext type_parameter_constraints_clauses = classDef.type_parameter_constraints_clauses();
+			if(type_parameter_constraints_clauses != null)
+				throw new UnsupportedOperationException(type_parameter_constraints_clauses.getText());
+		}
+
+		Struct_definitionContext structDef = ctx.struct_definition();
+		if (structDef != null)
+			System.out.println("Struct_definitionContext: " + structDef.getText());
+
+		Interface_definitionContext intDef = ctx.interface_definition();
+		if (intDef != null) {
+			currentClass.type = ClassType.INTERFACE;
+			throw new RuntimeException("Interface_definitionContext: " + intDef);
+		}
+		
+		Enum_definitionContext enumDef = ctx.enum_definition();
+		if(enumDef != null) {
+			currentClass.type = ClassType.ENUM;
+			System.out.println("Enum_definitionContext: " + enumDef);
+		}
+		
+		Delegate_definitionContext delDef = ctx.delegate_definition();
+		if(delDef != null)
+			System.out.println("Delegate_definitionContext: " + delDef.getText());
+		
+		AttributesContext attrCtx = ctx.attributes();
+		if(attrCtx != null)
+			System.out.println("AttributesContext: " + attrCtx.getText());
+		
+		All_member_modifiersContext allMemberCtx = ctx.all_member_modifiers();
+		if(allMemberCtx != null) {
+//			System.out.println("All_member_modifiersContext: " + allMemberCtx.getText());
+			currentClass.memberModifiers = getMemberModifiers(allMemberCtx.all_member_modifier());
+		}
 	}
+
+	private Set<MemberModifier> getMemberModifiers(List<All_member_modifierContext> all_member_modifiers) {
+		return all_member_modifiers.stream().map(ammc -> {
+			if(ammc.NEW() != null)
+				return MemberModifier.NEW;
+			else if(ammc.PUBLIC() != null)
+				return MemberModifier.PUBLIC;
+			else if(ammc.PROTECTED() != null)
+				return MemberModifier.PROTECTED;
+			else if(ammc.INTERNAL() != null)
+				return MemberModifier.INTERNAL;
+			else if(ammc.PRIVATE() != null)
+				return MemberModifier.PRIVATE;
+			else if(ammc.READONLY() != null)
+				return MemberModifier.READONLY;
+			else if(ammc.VOLATILE() != null)
+				return MemberModifier.VOLATILE;
+			else if(ammc.VIRTUAL() != null)
+				return MemberModifier.VIRTUAL;
+			else if(ammc.SEALED() != null)
+				return MemberModifier.SEALED;
+			else if(ammc.OVERRIDE() != null)
+				return MemberModifier.OVERRIDE;
+			else if(ammc.ABSTRACT() != null)
+				return MemberModifier.ABSTRACT;
+			else if(ammc.STATIC() != null)
+				return MemberModifier.STATIC;
+			else if(ammc.UNSAFE() != null)
+				return MemberModifier.UNSAFE;
+			else if(ammc.EXTERN() != null)
+				return MemberModifier.EXTERN;
+			else if(ammc.PARTIAL() != null)
+				return MemberModifier.PARTIAL;
+			else if(ammc.ASYNC() != null)
+				return MemberModifier.ASYNC;
+			else
+				throw new RuntimeException("Unkwnown Member Modifier: " + ammc.getText());
+		}).collect(Collectors.toSet());
+	}
+
 
 	@Override
 	public void exitQualified_alias_member(final CSharpParser.Qualified_alias_memberContext ctx) {
@@ -772,10 +889,10 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	}
 
-	@Override
-	public void exitClass_base(final CSharpParser.Class_baseContext ctx) {
-		System.out.println("exitClass_base: " + ctx.getText());
-	}
+//	@Override
+//	public void exitClass_base(final CSharpParser.Class_baseContext ctx) {
+//		System.out.println("exitClass_base: " + ctx.getText());
+//	}
 
 	@Override
 	public void exitInterface_type_list(final CSharpParser.Interface_type_listContext ctx) {
@@ -811,10 +928,10 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	}
 
-	@Override
-	public void exitClass_body(final CSharpParser.Class_bodyContext ctx) {
-		System.out.println("enterClass_body: " + ctx.getText());
-	}
+//	@Override
+//	public void exitClass_body(final CSharpParser.Class_bodyContext ctx) {
+//		System.out.println("enterClass_body: " + ctx.getText());
+//	}
 
 	@Override
 	public void exitClass_member_declarations(final CSharpParser.Class_member_declarationsContext ctx) {
@@ -1181,10 +1298,10 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	}
 
-	@Override
-	public void exitClass_definition(final CSharpParser.Class_definitionContext ctx) {
-		System.out.println("exitClass_definition: " + ctx.getText());
-	}
+//	@Override
+//	public void exitClass_definition(final CSharpParser.Class_definitionContext ctx) {
+//		System.out.println("exitClass_definition: " + ctx.getText());
+//	}
 
 	@Override
 	public void exitStruct_definition(final CSharpParser.Struct_definitionContext ctx) {
@@ -1286,20 +1403,24 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	}
 
-	@Override
-	public void enterEveryRule(final ParserRuleContext ctx) {
-		// System.out.println( "enterEveryRule: " +
-		// CSharpParser.ruleNames[ctx.getRuleIndex()] + " -> " +
-		// ctx.getText() );
-	}
+//	@Override
+//	public void enterEveryRule(final ParserRuleContext ctx) {
+//		// System.out.println( "enterEveryRule: " +
+//		// CSharpParser.ruleNames[ctx.getRuleIndex()] + " -> " +
+//		// ctx.getText() );
+//	}
 
-	@Override
-	public void exitEveryRule(final ParserRuleContext ctx) {
-		 System.out.println(
-		 "exitEveryRule: " + CSharpParser.ruleNames[ctx.getRuleIndex()] + " | " + ctx.getClass().getSimpleName() + " | " + ctx.getText());
-	}
+//	@Override
+//	public void exitEveryRule(final ParserRuleContext ctx) {
+//		 System.out.println(
+//		 "exitEveryRule: " + CSharpParser.ruleNames[ctx.getRuleIndex()] + " | " + ctx.getClass().getSimpleName() + " | " + ctx.getText());
+//	}
 	
 	private static final class ClassData {
+
+		public Set<MemberModifier> memberModifiers;
+		public String name;
+		public ClassType type;
 	    
 
 	}
