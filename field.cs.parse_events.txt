@@ -105,32 +105,32 @@ exitEveryRule: all_member_modifier | All_member_modifierContext | static
 exitEveryRule: all_member_modifiers | All_member_modifiersContext | publicstatic
 exitEveryRule: identifier | IdentifierContext | Func
 exitEveryRule: identifier | IdentifierContext | IBaseData
-exitNamespace_or_type_name: IBaseData
+	exitNamespace_or_type_name: IBaseData
 exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | IBaseData
-exitClass_type: IBaseData
+	exitClass_type: IBaseData
 exitEveryRule: class_type | Class_typeContext | IBaseData
-exitBase_type: IBaseData
+	exitBase_type: IBaseData
 exitEveryRule: base_type | Base_typeContext | IBaseData
-exitType: IBaseData
+	exitType: IBaseData
 exitEveryRule: type | TypeContext | IBaseData
 exitEveryRule: numeric_type | Numeric_typeContext | decimal
-exitSimple_type: decimal
+	exitSimple_type: decimal
 exitEveryRule: simple_type | Simple_typeContext | decimal
-exitBase_type: decimal
+	exitBase_type: decimal
 exitEveryRule: base_type | Base_typeContext | decimal
-exitType: decimal
+	exitType: decimal
 exitEveryRule: type | TypeContext | decimal
 exitEveryRule: type_argument_list | Type_argument_listContext | <IBaseData,decimal>
-exitNamespace_or_type_name: Func<IBaseData,decimal>
+	exitNamespace_or_type_name: Func<IBaseData,decimal>
 exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | Func<IBaseData,decimal>
-exitClass_type: Func<IBaseData,decimal>
+	exitClass_type: Func<IBaseData,decimal>
 exitEveryRule: class_type | Class_typeContext | Func<IBaseData,decimal>
-exitBase_type: Func<IBaseData,decimal>
+	exitBase_type: Func<IBaseData,decimal>
 exitEveryRule: base_type | Base_typeContext | Func<IBaseData,decimal>
-exitType: Func<IBaseData,decimal>
+	exitType: Func<IBaseData,decimal>
 exitEveryRule: type | TypeContext | Func<IBaseData,decimal>
 exitEveryRule: identifier | IdentifierContext | High
-exitNamespace_or_type_name: High
+	exitNamespace_or_type_name: High
 exitEveryRule: namespace_or_type_name | Namespace_or_type_nameContext | High
 exitEveryRule: member_name | Member_nameContext | High
 exitEveryRule: identifier | IdentifierContext | BaseDataBarPropertyOrValue
