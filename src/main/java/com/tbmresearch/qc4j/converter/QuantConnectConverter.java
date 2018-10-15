@@ -1,6 +1,12 @@
 package com.tbmresearch.qc4j.converter;
 
-import java.io.PrintStream;
+import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -25,7 +31,15 @@ import com.tbmresearch.qc4j.converter.CSharpParser.Type_parameter_listContext;
 
 public class QuantConnectConverter extends CSharpParserBaseListener {
 
-	private enum MemberModifier {
+    private final Path outputDirectory;
+
+    public QuantConnectConverter(Path outputDirectory) {
+        super();
+
+        this.outputDirectory = outputDirectory;
+    }
+
+    private enum MemberModifier {
 		NEW,
 		PUBLIC,
 		PROTECTED,
@@ -45,8 +59,9 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 	}
 
 	private enum ClassType {
-		CLASS, INTERFACE, ENUM
-
+		CLASS,
+        INTERFACE,
+        ENUM
 	}
 
 	private static final String QUANT_CONNECT = "QuantConnect";
@@ -54,19 +69,39 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 	private final List<ClassData> parsedClasses = new ArrayList<>();
 	private final Set<String> imports = new TreeSet<>();
 	private final Stack<ClassData> currentClassStack = new Stack<>();
+
 	private String namespace = null;
 	
 
 	private void writeClasses() {
-		for( final ClassData classData : parsedClasses ) {
-			final PrintStream out = System.out;
-			
-			out.append("package ").append(namespace.toLowerCase()).append(';').println();
-			out.println();
-			
-			imports.forEach(imp -> out.append("import ").append(imp.toLowerCase()).append(';').println() );
-			out.println();
-		}
+        try {
+            Path srcDir = outputDirectory.resolve(Paths.get(namespace.replace('.', '/')));
+            srcDir = Files.createDirectories(srcDir);
+
+            for( final ClassData classData : parsedClasses ) {
+                Path classFile = srcDir.resolve(classData.name + ".java");
+
+                BufferedWriter out = Files.newBufferedWriter(classFile, StandardOpenOption.CREATE);
+                out.append("package ").append(namespace).append(';').append('\n');
+                out.append('\n');
+
+                for( String imp : imports)
+                    out.append("import ").append(imp.toLowerCase()).append(';').append('\n');
+
+                out.append('\n');
+
+                for( MemberModifier cm : classData.classModifiers)
+                    out.append(cm.name().toLowerCase()).append( ' ' );
+
+                out.append(classData.name).append( " {\n");
+
+                out.append("}\n");
+
+                out.close();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 	}
 	
 
@@ -118,7 +153,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	@Override
 	public void exitClass_type(final CSharpParser.Class_typeContext ctx) {
-		 System.out.println( "exitClass_type: " + ctx.getText() );
+//		 System.out.println( "exitClass_type: " + ctx.getText() );
 	}
 
 	@Override
@@ -707,11 +742,9 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 		    throw new UnsupportedOperationException( "Multiple namespaces found: " + namespace + " & " + pkg );
 		}
 		else if( pkg.startsWith( QUANT_CONNECT ) )
-			namespace = pkg;
+			namespace = "com." + pkg.toLowerCase();
 		else
 			throw new UnsupportedOperationException( "Unhandled namespace: " + pkg );
-
-		System.out.println();
 	}
 
 //	@Override
@@ -721,7 +754,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	@Override
 	public void exitNamespace_body(final CSharpParser.Namespace_bodyContext ctx) {
-	    System.out.println("exitNamespace_body: " + ctx.getText());
+//	    System.out.println("exitNamespace_body: " + ctx.getText());
 	}
 
 	@Override
@@ -741,7 +774,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	@Override
 	public void exitUsingAliasDirective(final CSharpParser.UsingAliasDirectiveContext ctx) {
-	    System.out.println("exitUsingAliasDirective: " + ctx.getText());
+//	    System.out.println("exitUsingAliasDirective: " + ctx.getText());
 	}
 
 	@Override
@@ -750,7 +783,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 		 final String packageImport = ctx.namespace_or_type_name().getText();
 		 if( !"System".equals(packageImport) ) {
 			 if( packageImport.startsWith(QUANT_CONNECT) )
-				 imports.add( packageImport.toLowerCase() );
+				 imports.add( "com." + packageImport.toLowerCase() );
 		 else
 			 throw new UnsupportedOperationException("Not supporting using directive: " + packageImport);
 		 }
@@ -778,7 +811,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 	
 	@Override
 	public void exitType_declaration(final CSharpParser.Type_declarationContext ctx) {
-		System.out.println("exitType_declaration: " + ctx.getText());
+//		System.out.println("exitType_declaration: " + ctx.getText());
 		
 		ClassData currentClass = currentClassStack.pop();
 		parsedClasses.add(currentClass);
@@ -805,7 +838,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 		Struct_definitionContext structDef = ctx.struct_definition();
 		if (structDef != null)
-			System.out.println("Struct_definitionContext: " + structDef.getText());
+            throw new RuntimeException("Struct_definitionContext: " + structDef.getText());
 
 		Interface_definitionContext intDef = ctx.interface_definition();
 		if (intDef != null) {
@@ -816,25 +849,25 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 		Enum_definitionContext enumDef = ctx.enum_definition();
 		if(enumDef != null) {
 			currentClass.type = ClassType.ENUM;
-			System.out.println("Enum_definitionContext: " + enumDef);
+            throw new RuntimeException("Enum_definitionContext: " + enumDef);
 		}
 		
 		Delegate_definitionContext delDef = ctx.delegate_definition();
 		if(delDef != null)
-			System.out.println("Delegate_definitionContext: " + delDef.getText());
+            throw new RuntimeException("Delegate_definitionContext: " + delDef.getText());
 		
 		AttributesContext attrCtx = ctx.attributes();
 		if(attrCtx != null)
-			System.out.println("AttributesContext: " + attrCtx.getText());
+            throw new RuntimeException("AttributesContext: " + attrCtx.getText());
 		
 		All_member_modifiersContext allMemberCtx = ctx.all_member_modifiers();
 		if(allMemberCtx != null) {
 //			System.out.println("All_member_modifiersContext: " + allMemberCtx.getText());
-			currentClass.memberModifiers = getMemberModifiers(allMemberCtx.all_member_modifier());
+			currentClass.classModifiers = getMemberModifiers(allMemberCtx.all_member_modifier());
 		}
 	}
 
-	private Set<MemberModifier> getMemberModifiers(List<All_member_modifierContext> all_member_modifiers) {
+	private List<MemberModifier> getMemberModifiers(List<All_member_modifierContext> all_member_modifiers) {
 		return all_member_modifiers.stream().map(ammc -> {
 			if(ammc.NEW() != null)
 				return MemberModifier.NEW;
@@ -870,7 +903,7 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 				return MemberModifier.ASYNC;
 			else
 				throw new RuntimeException("Unkwnown Member Modifier: " + ammc.getText());
-		}).collect(Collectors.toSet());
+		}).collect(Collectors.toList());
 	}
 
 
@@ -940,7 +973,19 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 
 	@Override
 	public void exitClass_member_declaration(final CSharpParser.Class_member_declarationContext ctx) {
-		System.out.println("exitClass_member_declaration: " + ctx.getText());
+//		System.out.println("exitClass_member_declaration: " + ctx.getText());
+
+        All_member_modifiersContext amm = ctx.all_member_modifiers();
+        List<MemberModifier> methodModifiers = getMemberModifiers(amm.all_member_modifier());
+
+        CSharpParser.Common_member_declarationContext cmdc = ctx.common_member_declaration();
+
+        CSharpParser.Destructor_definitionContext ddc = ctx.destructor_definition();
+        if(ddc != null)
+            throw new RuntimeException("Unahndled Destructor_definitionContext: " + ddc);
+
+        AttributesContext attributes = ctx.attributes();
+
 	}
 
 	@Override
@@ -1418,10 +1463,12 @@ public class QuantConnectConverter extends CSharpParserBaseListener {
 	
 	private static final class ClassData {
 
-		public Set<MemberModifier> memberModifiers;
 		public String name;
+
 		public ClassType type;
-	    
+
+		public List<MemberModifier> classModifiers;
+
 
 	}
 }

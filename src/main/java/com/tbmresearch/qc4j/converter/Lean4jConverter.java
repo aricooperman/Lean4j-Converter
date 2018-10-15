@@ -1,6 +1,9 @@
 package com.tbmresearch.qc4j.converter;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,16 +16,20 @@ import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
 import org.antlr.v4.runtime.Token;
 
-public class App {
+public class Lean4jConverter {
 
 	public static final void main(final String[] args) throws IOException {
+        final Path currentWorkingDirectory = Paths.get("");
+//        Files.createDirectories(currentWorkingDirectory);
+        Path path = Paths.get(args[0]);
+
 		final List<Token> codeTokens = new ArrayList<>();
 		final List<Token> commentTokens = new ArrayList<>();
+		final List<Token> directiveTokens = new ArrayList<>();
 
-		final Lexer preprocessorLexer = new CSharpLexer(CharStreams.fromFileName(args[0]));
+        final Lexer preprocessorLexer = new CSharpLexer(CharStreams.fromPath(path));
 		// Collect all tokens with lexer (CSharpLexer.g4).
 		final List<? extends Token> tokens = preprocessorLexer.getAllTokens();
-		final List<Token> directiveTokens = new ArrayList<>();
 		ListTokenSource directiveTokenSource = new ListTokenSource(directiveTokens);
 		CommonTokenStream directiveTokenStream = new CommonTokenStream(directiveTokenSource, CSharpLexer.DIRECTIVE);
 		final CSharpPreprocessorParser preprocessorParser = new CSharpPreprocessorParser(directiveTokenStream);
@@ -58,10 +65,11 @@ public class App {
 				// if true than next code is valid and not ignored.
 				compiliedTokens = directive.value;
 				index = directiveTokenIndex - 1;
-			} else if (token.getChannel() == CSharpLexer.COMMENTS_CHANNEL)
-				commentTokens.add(token); // Colect comment tokens (if
-											// required).
-			else if (token.getChannel() != Lexer.HIDDEN && token.getType() != CSharpLexer.DIRECTIVE_NEW_LINE
+			}
+			else if (token.getChannel() == CSharpLexer.COMMENTS_CHANNEL)
+				commentTokens.add(token); // Colect comment tokens (if required).
+			else if (token.getChannel() != Lexer.HIDDEN
+                    && token.getType() != CSharpLexer.DIRECTIVE_NEW_LINE
 					&& compiliedTokens)
 				codeTokens.add(token); // Collect code tokens.
 			index++;
@@ -71,12 +79,6 @@ public class App {
 		final ListTokenSource codeTokenSource = new ListTokenSource(tokens);
 		final CommonTokenStream codeTokenStream = new CommonTokenStream(codeTokenSource);
 		final CSharpParser csharpParser = new CSharpParser(codeTokenStream);
-//		// Parse syntax tree (CSharpParser.g4)
-//		Compilation_unitContext compilationUnit = parser.compilation_unit();
-//
-//		CharStream charStream = CharStreams.fromFileName(args[0]);
-//		CSharpLexer csharpLexer = new CSharpLexer(charStream);
-//		CSharpParser csharpParser = new CSharpParser(new CommonTokenStream(csharpLexer));
 
 		csharpParser.addErrorListener(new BaseErrorListener() {
 			@Override
@@ -86,7 +88,7 @@ public class App {
 			}
 		});
 
-		csharpParser.addParseListener(new QuantConnectConverter());
+		csharpParser.addParseListener(new QuantConnectConverter(currentWorkingDirectory));
 
 		csharpParser.compilation_unit();
 	}

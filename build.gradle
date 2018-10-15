@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'antlr'
-// apply plugin: 'idea'
+apply plugin: 'idea'
 apply plugin: 'eclipse'
 
 sourceCompatibility = 1.8
@@ -39,8 +39,8 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.3.1'
 }
 
-// idea {
-//     module {
-//         sourceDirs += file("generated-src/antlr/main")
-//     }
-// }
+idea {
+    module {
+        sourceDirs += file("generated-src/antlr/main")
+    }
+}
